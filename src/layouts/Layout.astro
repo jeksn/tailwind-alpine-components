@@ -9,7 +9,7 @@ import Nav from '../components/Nav.astro';
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data="{ isDarkMode: false }" x-init="isDarkMode = localStorage.getItem('darkMode') === 'true'" x-bind:class="{ 'dark': isDarkMode }">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description">
@@ -18,7 +18,7 @@ import Nav from '../components/Nav.astro';
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="bg-white dark:bg-slate-800">
 	<Nav />
 	<main>
 		<slot />
